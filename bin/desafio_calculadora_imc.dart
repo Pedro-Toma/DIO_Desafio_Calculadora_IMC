@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:desafio_calculadora_imc/classes/pessoa.dart';
 import 'package:desafio_calculadora_imc/desafio_calculadora_imc.dart';
 import 'package:desafio_calculadora_imc/models/console_utils.dart';
 
@@ -21,11 +22,13 @@ void main(List<String> arguments) {
     exit(0);
   }
 
-  double imc = calcularIMC(peso, altura);
+  Pessoa usuario = Pessoa(nome, peso, altura);
+
+  double imc = calcularIMC(usuario.getPeso(), usuario.getAltura());
   String classificacao = calcularClassificacao(imc);
   
   print("");
-  print("Usuário:        $nome");
+  print("Usuário:        ${usuario.getNome()}");
   print("IMC Calculado:  $imc");
   print("Classificação:  $classificacao");
   print(termino);
